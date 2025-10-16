@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
@@ -16,8 +16,7 @@ const PersonalityTest = () => {
   const [answers, setAnswers] = useState<number[]>(new Array(questions.length).fill(0))
   const [showResult, setShowResult] = useState(false)
   const [result, setResult] = useState<TestResult | null>(null)
-  const [isAnimating, setIsAnimating] = useState(false)
-
+  
   const handleAnswer = (value: number) => {
     const newAnswers = [...answers]
     newAnswers[currentQuestion] = value
@@ -141,8 +140,7 @@ const ResultComponent = ({
   onRestart: () => void
   answers: number[]
 }) => {
-  const [showDetails, setShowDetails] = useState(false)
-  const shareResult = () => {
+    const shareResult = () => {
     const text = `我刚刚完成了"怕麻烦人格测试"！\n我的得分是：${result.score}/150\n我是：${result.description}\n\n你也来测测吧！`
     if (navigator.share) {
       navigator.share({
@@ -195,7 +193,7 @@ const ResultComponent = ({
 
             <div className="space-y-3">
               <h3 className="font-semibold text-lg">各维度得分</h3>
-              {categoryScores.map((cat, index) => (
+              {categoryScores.map((cat) => (
                 <div key={cat.category} className="flex items-center justify-between">
                   <span className="text-sm text-gray-600">{cat.category}</span>
                   <div className="flex items-center gap-2">

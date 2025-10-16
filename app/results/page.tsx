@@ -151,7 +151,11 @@ export default function ResultsPage() {
                     <CardTitle>人格维度雷达图</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <PersonalityRadarChart data={result.categories} />
+                    <PersonalityRadarChart data={result.categories.map(cat => ({
+                      category: cat.name,
+                      score: cat.score,
+                      fullScore: cat.fullScore
+                    }))} />
                   </CardContent>
                 </Card>
 
@@ -160,7 +164,12 @@ export default function ResultsPage() {
                     <CardTitle>分类得分对比</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CategoryBarChart data={result.categories} />
+                    <CategoryBarChart data={result.categories.map(cat => ({
+                      category: cat.name,
+                      score: cat.score,
+                      fullScore: cat.fullScore,
+                      percentage: cat.percentage
+                    }))} />
                   </CardContent>
                 </Card>
               </div>

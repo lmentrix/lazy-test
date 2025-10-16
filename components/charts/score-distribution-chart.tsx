@@ -8,22 +8,8 @@ interface DistributionChartProps {
 }
 
 export function ScoreDistributionChart({ score, totalScore }: DistributionChartProps) {
-  const percentage = (score / totalScore) * 100
-
-  let level = ""
-  let levelColor = ""
-
-  if (score <= 60) {
-    level = "不太怕麻烦"
-    levelColor = "hsl(var(--chart-1))"
-  } else if (score <= 100) {
-    level = "中度怕麻烦"
-    levelColor = "hsl(var(--chart-3))"
-  } else {
-    level = "重度怕麻烦"
-    levelColor = "hsl(var(--chart-5))"
-  }
-
+  
+  
   const data = [
     { name: '当前得分', value: score, color: 'hsl(var(--primary))' },
     { name: '剩余分数', value: totalScore - score, color: 'hsl(var(--muted))' }
@@ -36,8 +22,7 @@ export function ScoreDistributionChart({ score, totalScore }: DistributionChartP
           data={data}
           cx="50%"
           cy="50%"
-          innerLine={false}
-          outerRadius={80}
+            outerRadius={80}
           fill="#8884d8"
           paddingAngle={5}
           dataKey="value"

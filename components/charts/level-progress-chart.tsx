@@ -15,24 +15,20 @@ export function LevelProgressChart({ score, totalScore }: LevelProgressChartProp
   let level = ""
   let levelDescription = ""
   let levelColor = ""
-  let progress = 0
-
+  
   if (score <= 60) {
     level = "不太怕麻烦"
     levelDescription = "行动力强，乐于接受挑战"
     levelColor = "bg-green-500"
-    progress = (score / 60) * 33.33
-  } else if (score <= 100) {
+    } else if (score <= 100) {
     level = "中度怕麻烦"
     levelDescription = "容易拖延或简化选择"
     levelColor = "bg-yellow-500"
-    progress = 33.33 + ((score - 60) / 40) * 33.33
-  } else {
+    } else {
     level = "重度怕麻烦"
     levelDescription = "倾向于减少社交与复杂决策"
     levelColor = "bg-red-500"
-    progress = 66.66 + ((score - 100) / 50) * 33.34
-  }
+      }
 
   const levels = [
     { name: "不太怕麻烦", range: "30-60分", description: "行动力强", achieved: score >= 30 },
